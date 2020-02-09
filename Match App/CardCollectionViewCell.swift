@@ -54,6 +54,7 @@ class CardCollectionViewCell: UICollectionViewCell {
         UIView.transition(from: backImageView, to: frontImageView, duration: 0.3, options: [.transitionFlipFromLeft, .showHideTransitionViews], completion: nil)
         
         card?.isFlipped = true
+        
     }
     
     func flipBack() {

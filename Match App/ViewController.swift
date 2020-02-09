@@ -21,8 +21,8 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     var firstFlippedCardIndex:IndexPath?
     
     var timer:Timer?
-    var milliseconds:Float = 10 * 1000 // 10 seconds
-    
+    var milliseconds:Float = 30 * 1000 // 10 seconds
+        
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -35,6 +35,12 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         // Create time
         timer = Timer.scheduledTimer(timeInterval: 0.001, target: self, selector: #selector(timerElapsed), userInfo: nil, repeats: true)
         RunLoop.main.add(timer!, forMode: .common)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        
+        SoundManager.playSound(.shuffle)
+        
     }
     
     // MARK: - Timer Methods
@@ -100,6 +106,9 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
             // Flip the card
             cell.flip()
             
+            // Play the flip suond
+            SoundManager.playSound(.flip)
+            
             // Determine if it's the first card or second card that's flipped over
             if firstFlippedCardIndex == nil {
                 
@@ -132,6 +141,9 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
             
             // It's a match
             
+            // Play sound
+            SoundManager.playSound(.match)
+            
             // Set the statuses of the cards
             cardOne.isMatched = true
             cardTwo.isMatched = true
@@ -147,7 +159,8 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
             
             // It's not a match
             
-            // Set the statuses of the cards
+            // Play sound
+            SoundManager.playSound(.nomatch)
             
             // Flip bot cards back
             cardOneCell?.flipBack()

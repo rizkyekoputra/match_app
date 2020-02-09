@@ -10,6 +10,12 @@
 		43D85AA123F00545009CF85A /* CardModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43D85AA023F00545009CF85A /* CardModel.swift */; };
 		43D85AA323F0072B009CF85A /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43D85AA223F0072B009CF85A /* Card.swift */; };
 		43D85AA523F00AB1009CF85A /* CardCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43D85AA423F00AB1009CF85A /* CardCollectionViewCell.swift */; };
+		43D85AAB23F030FB009CF85A /* dingwrong.wav in Resources */ = {isa = PBXBuildFile; fileRef = 43D85AA723F030FA009CF85A /* dingwrong.wav */; };
+		43D85AAC23F030FB009CF85A /* shuffle.wav in Resources */ = {isa = PBXBuildFile; fileRef = 43D85AA823F030FB009CF85A /* shuffle.wav */; };
+		43D85AAD23F030FB009CF85A /* cardflip.wav in Resources */ = {isa = PBXBuildFile; fileRef = 43D85AA923F030FB009CF85A /* cardflip.wav */; };
+		43D85AAE23F030FB009CF85A /* dingcorrect.wav in Resources */ = {isa = PBXBuildFile; fileRef = 43D85AAA23F030FB009CF85A /* dingcorrect.wav */; };
+		43D85AB123F0311C009CF85A /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43D85AB023F0311C009CF85A /* AVFoundation.framework */; };
+		43D85AB323F03175009CF85A /* SoundManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43D85AB223F03175009CF85A /* SoundManager.swift */; };
 		43FD21ED23ED65BE00DF3361 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43FD21EC23ED65BE00DF3361 /* AppDelegate.swift */; };
 		43FD21EF23ED65BE00DF3361 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43FD21EE23ED65BE00DF3361 /* SceneDelegate.swift */; };
 		43FD21F123ED65BE00DF3361 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43FD21F023ED65BE00DF3361 /* ViewController.swift */; };
@@ -22,6 +28,12 @@
 		43D85AA023F00545009CF85A /* CardModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardModel.swift; sourceTree = "<group>"; };
 		43D85AA223F0072B009CF85A /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		43D85AA423F00AB1009CF85A /* CardCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCollectionViewCell.swift; sourceTree = "<group>"; };
+		43D85AA723F030FA009CF85A /* dingwrong.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = dingwrong.wav; sourceTree = "<group>"; };
+		43D85AA823F030FB009CF85A /* shuffle.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = shuffle.wav; sourceTree = "<group>"; };
+		43D85AA923F030FB009CF85A /* cardflip.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = cardflip.wav; sourceTree = "<group>"; };
+		43D85AAA23F030FB009CF85A /* dingcorrect.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = dingcorrect.wav; sourceTree = "<group>"; };
+		43D85AB023F0311C009CF85A /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		43D85AB223F03175009CF85A /* SoundManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundManager.swift; sourceTree = "<group>"; };
 		43FD21E923ED65BE00DF3361 /* Match App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Match App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		43FD21EC23ED65BE00DF3361 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		43FD21EE23ED65BE00DF3361 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -37,17 +49,38 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				43D85AB123F0311C009CF85A /* AVFoundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		43D85AA623F030E2009CF85A /* Sounds */ = {
+			isa = PBXGroup;
+			children = (
+				43D85AA923F030FB009CF85A /* cardflip.wav */,
+				43D85AAA23F030FB009CF85A /* dingcorrect.wav */,
+				43D85AA723F030FA009CF85A /* dingwrong.wav */,
+				43D85AA823F030FB009CF85A /* shuffle.wav */,
+			);
+			path = Sounds;
+			sourceTree = "<group>";
+		};
+		43D85AAF23F0311C009CF85A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				43D85AB023F0311C009CF85A /* AVFoundation.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		43FD21E023ED65BE00DF3361 = {
 			isa = PBXGroup;
 			children = (
 				43FD21EB23ED65BE00DF3361 /* Match App */,
 				43FD21EA23ED65BE00DF3361 /* Products */,
+				43D85AAF23F0311C009CF85A /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -62,6 +95,7 @@
 		43FD21EB23ED65BE00DF3361 /* Match App */ = {
 			isa = PBXGroup;
 			children = (
+				43D85AA623F030E2009CF85A /* Sounds */,
 				43FD21EC23ED65BE00DF3361 /* AppDelegate.swift */,
 				43FD21EE23ED65BE00DF3361 /* SceneDelegate.swift */,
 				43FD21F023ED65BE00DF3361 /* ViewController.swift */,
@@ -72,6 +106,7 @@
 				43FD21F523ED65C200DF3361 /* Assets.xcassets */,
 				43FD21F723ED65C200DF3361 /* LaunchScreen.storyboard */,
 				43FD21FA23ED65C200DF3361 /* Info.plist */,
+				43D85AB223F03175009CF85A /* SoundManager.swift */,
 			);
 			path = "Match App";
 			sourceTree = "<group>";
@@ -134,9 +169,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				43D85AAB23F030FB009CF85A /* dingwrong.wav in Resources */,
 				43FD21F923ED65C200DF3361 /* LaunchScreen.storyboard in Resources */,
 				43FD21F623ED65C200DF3361 /* Assets.xcassets in Resources */,
 				43FD21F423ED65BE00DF3361 /* Main.storyboard in Resources */,
+				43D85AAC23F030FB009CF85A /* shuffle.wav in Resources */,
+				43D85AAE23F030FB009CF85A /* dingcorrect.wav in Resources */,
+				43D85AAD23F030FB009CF85A /* cardflip.wav in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -152,6 +191,7 @@
 				43D85AA323F0072B009CF85A /* Card.swift in Sources */,
 				43FD21ED23ED65BE00DF3361 /* AppDelegate.swift in Sources */,
 				43D85AA523F00AB1009CF85A /* CardCollectionViewCell.swift in Sources */,
+				43D85AB323F03175009CF85A /* SoundManager.swift in Sources */,
 				43FD21EF23ED65BE00DF3361 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
