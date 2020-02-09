@@ -10,25 +10,59 @@ import UIKit
 
 class ViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     
+    
+    @IBOutlet weak var timerLabel: UILabel!
+    
     @IBOutlet weak var collectionView: UICollectionView!
     
     var model = CardModel()
     var cardArray = [Card]()
     
     var firstFlippedCardIndex:IndexPath?
-
+    
+    var timer:Timer?
+    var milliseconds:Float = 10 * 1000 // 10 seconds
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // Call the getCards method of the card model
+        cardArray = model.getCards()
         
         collectionView.delegate = self
         collectionView.dataSource = self
         
-        // Call the getCards method of the card model
-        cardArray = model.getCards()
+        // Create time
+        timer = Timer.scheduledTimer(timeInterval: 0.001, target: self, selector: #selector(timerElapsed), userInfo: nil, repeats: true)
+        RunLoop.main.add(timer!, forMode: .common)
     }
-
+    
+    // MARK: - Timer Methods
+    
+    @objc func timerElapsed() {
+        
+        milliseconds -= 1
+        
+        // Convert to seconds
+        let seconds = String(format: "%.2f", milliseconds/1000)
+        
+        // Set label
+        timerLabel.text = "Time Remaining: \(seconds)"
+        
+        // When the timer has reached 0...
+        if milliseconds <= 0 {
+            
+            // Stop the timer
+            timer?.invalidate()
+            timerLabel.textColor = UIColor.red
+            
+            // Check if there are any cards unmatched
+            checkGameEnded()
+        }
+    }
+    
     // MARK: - UICollectionView Protocol Methods
-
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
         return cardArray.count
@@ -41,7 +75,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         
         // Get the card that the collection view is trying to display
         let card = cardArray[indexPath.row]
-            
+        
         // Set that card for the cell
         cell.setCard(card)
         
@@ -49,6 +83,11 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        // Check if there's any time left
+        if milliseconds <= 0 {
+            return
+        }
         
         // Get the cell that user selected
         let cell = collectionView.cellForItem(at: indexPath) as! CardCollectionViewCell
@@ -101,6 +140,9 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
             cardOneCell?.remove()
             cardTwoCell?.remove()
             
+            // Check if there are any cards left unmatched
+            checkGameEnded()
+            
         } else {
             
             // It's not a match
@@ -121,6 +163,59 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         // Reset the property that tracks the first card flipped
         firstFlippedCardIndex = nil
         
+    }
+    
+    func checkGameEnded() {
+        
+        // Determine if there are any cards unmatched
+        var isWon = true
+        
+        for card in cardArray {
+            
+            if !card.isMatched {
+                isWon = false
+                break
+            }
+        }
+        
+        // Messaging variables
+        var title = ""
+        var message = ""
+        
+        // If not, then user has won, stop the timer
+        if isWon {
+            
+            if milliseconds > 0 {
+                timer?.invalidate()
+            }
+            
+            title = "Congratulations!"
+            message = "You've won"
+            
+        } else {
+            // If there are unmatched cards, check if there's any time left
+            
+            if milliseconds > 0 {
+                return
+            }
+            
+            title = "Game Over"
+            message = "You've lost"
+        }
+        
+        // Show won/lost messaging
+        showAlert(title, message)
+        
+    }
+    
+    func showAlert(_ title:String, _ message:String) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        
+        let alertAction = UIAlertAction(title: "Ok", style: .default, handler: nil)
+        
+        alert.addAction(alertAction)
+        
+        present(alert, animated: true, completion: nil)
     }
 }
 
