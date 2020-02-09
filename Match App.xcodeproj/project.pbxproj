@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		43D85AA123F00545009CF85A /* CardModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43D85AA023F00545009CF85A /* CardModel.swift */; };
+		43D85AA323F0072B009CF85A /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43D85AA223F0072B009CF85A /* Card.swift */; };
+		43D85AA523F00AB1009CF85A /* CardCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43D85AA423F00AB1009CF85A /* CardCollectionViewCell.swift */; };
 		43FD21ED23ED65BE00DF3361 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43FD21EC23ED65BE00DF3361 /* AppDelegate.swift */; };
 		43FD21EF23ED65BE00DF3361 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43FD21EE23ED65BE00DF3361 /* SceneDelegate.swift */; };
 		43FD21F123ED65BE00DF3361 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43FD21F023ED65BE00DF3361 /* ViewController.swift */; };
@@ -16,6 +19,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		43D85AA023F00545009CF85A /* CardModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardModel.swift; sourceTree = "<group>"; };
+		43D85AA223F0072B009CF85A /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
+		43D85AA423F00AB1009CF85A /* CardCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCollectionViewCell.swift; sourceTree = "<group>"; };
 		43FD21E923ED65BE00DF3361 /* Match App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Match App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		43FD21EC23ED65BE00DF3361 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		43FD21EE23ED65BE00DF3361 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -59,6 +65,9 @@
 				43FD21EC23ED65BE00DF3361 /* AppDelegate.swift */,
 				43FD21EE23ED65BE00DF3361 /* SceneDelegate.swift */,
 				43FD21F023ED65BE00DF3361 /* ViewController.swift */,
+				43D85AA023F00545009CF85A /* CardModel.swift */,
+				43D85AA223F0072B009CF85A /* Card.swift */,
+				43D85AA423F00AB1009CF85A /* CardCollectionViewCell.swift */,
 				43FD21F223ED65BE00DF3361 /* Main.storyboard */,
 				43FD21F523ED65C200DF3361 /* Assets.xcassets */,
 				43FD21F723ED65C200DF3361 /* LaunchScreen.storyboard */,
@@ -139,7 +148,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				43FD21F123ED65BE00DF3361 /* ViewController.swift in Sources */,
+				43D85AA123F00545009CF85A /* CardModel.swift in Sources */,
+				43D85AA323F0072B009CF85A /* Card.swift in Sources */,
 				43FD21ED23ED65BE00DF3361 /* AppDelegate.swift in Sources */,
+				43D85AA523F00AB1009CF85A /* CardCollectionViewCell.swift in Sources */,
 				43FD21EF23ED65BE00DF3361 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
